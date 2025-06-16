@@ -37,7 +37,7 @@ const Header = () => {
   }, [inputValue]);
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div className="w-full flex flex-col">
       <header className="w-full fixed z-99 shadow-xl">
         <div className="w-full relative">
           <div className="w-full h-12 bg-red-600"></div>
@@ -54,7 +54,7 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="w-full px-30 py-2 fixed z-99 bottom-0 bg-blue-600 flex justify-between items-center">
+      <div className="w-full px-[120px] py-2 fixed z-50 bottom-0 bg-blue-600 flex justify-between items-center">
         <div className="relative w-3/5">
           <SearchIcon className="absolute top-1/2 left-4 transform -translate-y-1/2 w-5 h-5.5 fill-gray-400" />
           <input

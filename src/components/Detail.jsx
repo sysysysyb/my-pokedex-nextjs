@@ -7,6 +7,7 @@ import HeartFillIcon from "@/images/heart_fill.svg?react";
 import { add, remove } from "@/store/slice";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import RotateGif from "@/images/rotate.gif";
 
 const typeColorList = {
   bug: "#9F9F28",
@@ -51,7 +52,12 @@ const Detail = () => {
     setShowShiny(false);
   }, [pokemonData]);
 
-  if (!pokemonData) return <div>Loading...</div>;
+  if (!pokemonData)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Image src={RotateGif} alt="loading" className="size-20" />
+      </div>
+    );
 
   return (
     <aside className="pb-20 h-full w-full absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
@@ -68,12 +74,14 @@ const Detail = () => {
               src={pokemonData.sprites.front_default}
               alt="default"
               width="500"
+              height="500"
             />
             <Image
               className="rotate-y-180 backface-hidden row-start-1 col-start-1 row-end-1 col-end-1"
               src={pokemonData.sprites.back_default}
               alt="default"
               width="500"
+              height="500"
             />
           </div>
           <div
@@ -84,12 +92,14 @@ const Detail = () => {
               src={pokemonData.sprites.front_shiny}
               alt="shiny"
               width="500"
+              height="500"
             />
             <Image
               className="rotate-y-180 backface-hidden row-start-1 col-start-1 row-end-1 col-end-1"
               src={pokemonData.sprites.back_shiny}
               alt="shiny"
               width="500"
+              height="500"
             />
           </div>
           <div className="flex justify-center gap-2">
@@ -126,9 +136,11 @@ const Detail = () => {
                     <HeartIcon className="w-8 h-8 fill-white" />
                   )}
                 </button>
-                <span>{String(selectedId).padStart(3, "0")}</span>
+                <span className="font-bold">
+                  {String(selectedId).padStart(3, "0")}
+                </span>
               </div>
-              <span>{pokemonData.name}</span>
+              <span className="font-bold">{pokemonData.name}</span>
             </div>
             <div className="pr-5 flex justify-end p-2 rounded-b-lg bg-white">
               <span className="">{pokemonData.genus}</span>
