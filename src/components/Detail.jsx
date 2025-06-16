@@ -7,6 +7,7 @@ import HeartFillIcon from "@/images/heart_fill.svg?react";
 import { add, remove } from "@/store/slice";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import RotateGif from "@/images/rotate.gif";
 
 const typeColorList = {
   bug: "#9F9F28",
@@ -54,7 +55,7 @@ const Detail = () => {
   if (!pokemonData)
     return (
       <div className="w-full h-full flex justify-center items-center">
-        Loading...
+        <Image src={RotateGif} alt="loading" className="size-20" />
       </div>
     );
 

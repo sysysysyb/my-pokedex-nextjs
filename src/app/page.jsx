@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultiplePokemonById, fetchPokemonId } from "@/store/thunk";
 import { setSelected } from "@/store/slice";
+import RotateGif from "@/images/rotate.gif";
+import Image from "next/image";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,13 @@ const Home = () => {
       dispatch(setSelected(1));
     }
   }, [dispatch, pokemonIdList]);
+
+  if (pokemonData.length === 0)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Image src={RotateGif} alt="loading" className="size-20" />
+      </div>
+    );
 
   return (
     <section className="py-5 bg-white">
