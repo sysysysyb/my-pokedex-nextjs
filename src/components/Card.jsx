@@ -3,6 +3,7 @@ import HeartFillIcon from "../images/heart_fill.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove, setSelected } from "../RTK/slice";
 import { memo } from "react";
+import Image from "next/image";
 
 const Card = memo(function Card({ id, color, name, sprite }) {
   const favoritesList = useSelector((state) => state.favorites.list);
@@ -21,7 +22,7 @@ const Card = memo(function Card({ id, color, name, sprite }) {
     <div
       onClick={() => dispatch(setSelected(Number(id)))}
       className="relative w-50 py-4 relative shadow-[0px_0px_3px_3px_inset_#00000010] bg-white flex flex-col items-center shrink-0 cursor-pointer duration-300 ease-out hover:bg-gray-100">
-      <img src={sprite} width="150" />
+      <Image src={sprite} width="150" alt="sprite_image" />
       <div className="w-fit h-fit border border-solid border-gray-300 flex justify-center items-center rounded-xl">
         <span
           className="px-3 py-0.5 font-semibold rounded-xl border-r border-solid border-gray-300"
