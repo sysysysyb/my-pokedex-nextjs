@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectPokemonById } from "../RTK/selector";
-import HeartIcon from "../images/heart.svg?react";
-import HeartFillIcon from "../images/heart_fill.svg?react";
-import { add, remove } from "../RTK/slice";
+import { selectPokemonById } from "@/store/selector";
+import HeartIcon from "@images/heart.svg?react";
+import HeartFillIcon from "@images/heart_fill.svg?react";
+import { add, remove } from "@/store/slice";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
