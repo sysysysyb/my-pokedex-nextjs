@@ -57,10 +57,20 @@ export const selectedSlice = createSlice({
 
 export const { setSelected } = selectedSlice.actions;
 
+const getFavoritesFromStorage = () => {
+  if (typeof window === "undefined") return [];
+  try {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+};
+
 export const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
-    list: JSON.parse(localStorage.getItem("favorites")) || [],
+    list: getFavoritesFromStorage(),
   },
   reducers: {
     add(state, action) {
