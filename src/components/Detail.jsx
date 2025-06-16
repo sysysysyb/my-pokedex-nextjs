@@ -51,7 +51,12 @@ const Detail = () => {
     setShowShiny(false);
   }, [pokemonData]);
 
-  if (!pokemonData) return <div>Loading...</div>;
+  if (!pokemonData)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        Loading...
+      </div>
+    );
 
   return (
     <aside className="pb-20 h-full w-full absolute z-1 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
