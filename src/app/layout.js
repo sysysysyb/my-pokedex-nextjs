@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
+import Detail from "@/components/Detail";
+import { Providers } from "./Providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,9 +22,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="ko">
+      <body>
+        <Providers>
+          <Header />
+          <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
+            {/* pages 콘텐츠 */}
+            <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-9">
+              {children}
+            </div>
+            {/* Detail 컴포넌트 */}
+            <div className="w-full h-full col-span-1 relative">
+              <Detail />
+            </div>
+          </div>
+        </Providers>
+        {/* 헤더 */}
       </body>
     </html>
   );
