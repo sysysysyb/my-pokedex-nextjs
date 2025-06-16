@@ -130,9 +130,11 @@ const Detail = () => {
                     <HeartIcon className="w-8 h-8 fill-white" />
                   )}
                 </button>
-                <span>{String(selectedId).padStart(3, "0")}</span>
+                <span className="font-bold">
+                  {String(selectedId).padStart(3, "0")}
+                </span>
               </div>
-              <span>{pokemonData.name}</span>
+              <span className="font-bold">{pokemonData.name}</span>
             </div>
             <div className="pr-5 flex justify-end p-2 rounded-b-lg bg-white">
               <span className="">{pokemonData.genus}</span>
