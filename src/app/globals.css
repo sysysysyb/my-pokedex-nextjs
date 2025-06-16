@@ -1,8 +1,6 @@
-@import url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
 @import "tailwindcss";
 
 @theme {
-  --font-galmuri: "Galmuri9", sans-serif;
   --animate-fade-in: fade-in 0.4s ease-in-out;
 
   @keyframes fade-in {

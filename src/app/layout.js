@@ -4,15 +4,13 @@ import Header from "@/components/Header";
 import Detail from "@/components/Detail";
 import { Providers } from "./Providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const galmuri9 = localFont({
+  src: [
+    { path: "./fonts/Galmuri9.woff2", weight: "400" },
+    { path: "./fonts/Galmuri9.ttf", weight: "400" },
+  ],
+  variable: "--font-galmuri",
+  display: "swap",
 });
 
 export const metadata = {
@@ -22,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={galmuri9.className}>
       <body className="h-screen">
         <Providers>
           <Header />
