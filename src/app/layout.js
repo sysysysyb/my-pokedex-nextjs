@@ -23,12 +23,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body>
+      <body className="h-screen">
         <Providers>
           <Header />
-          <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
+          <div className="pt-[120px] pb-[80px] w-full h-full grid grid-cols-3">
             {/* pages 콘텐츠 */}
-            <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-9">
+            <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-10">
               {children}
             </div>
             {/* Detail 컴포넌트 */}

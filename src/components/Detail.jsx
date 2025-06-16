@@ -68,12 +68,14 @@ const Detail = () => {
               src={pokemonData.sprites.front_default}
               alt="default"
               width="500"
+              height="500"
             />
             <Image
               className="rotate-y-180 backface-hidden row-start-1 col-start-1 row-end-1 col-end-1"
               src={pokemonData.sprites.back_default}
               alt="default"
               width="500"
+              height="500"
             />
           </div>
           <div
@@ -84,12 +86,14 @@ const Detail = () => {
               src={pokemonData.sprites.front_shiny}
               alt="shiny"
               width="500"
+              height="500"
             />
             <Image
               className="rotate-y-180 backface-hidden row-start-1 col-start-1 row-end-1 col-end-1"
               src={pokemonData.sprites.back_shiny}
               alt="shiny"
               width="500"
+              height="500"
             />
           </div>
           <div className="flex justify-center gap-2">
