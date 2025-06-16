@@ -1,13 +1,15 @@
-import { lazy, useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import SearchIcon from "../images/search.svg?react";
+"use client";
 
-const Detail = lazy(() => import("../pages/Detail"));
+import { useEffect, useState } from "react";
+import SearchIcon from "../images/search.svg?react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+// useNavigate, useLocation -> useRouter(), usePathname()
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleInput = (event) => {
     setInputValue(event.target.value);
@@ -18,17 +20,17 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(navigate);
+    console.log(router);
     if (inputValue) {
       const debounceSearch = setTimeout(() => {
-        navigate(`/search?pokemon=${inputValue}`);
+        router.push(`/search?pokemon=${inputValue}`);
       }, 300);
 
       return () => clearTimeout(debounceSearch);
     }
 
-    if (!inputValue && location.pathname.startsWith("/search")) {
-      navigate("/");
+    if (!inputValue && pathname.startsWith("/search")) {
+      router.push("/");
       return;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +45,7 @@ const Header = () => {
           <div className="w-full h-12 bg-white"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 bg-black flex justify-center items-center rounded-xl">
             <Link
-              to="/"
+              href="/"
               className="text-white text-4xl font-bold"
               onClick={resetInput}>
               Pokédex
@@ -51,15 +53,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-      <div className="pt-30 pb-20 w-full h-full grid grid-cols-3">
-        <div className="scrollbar-custom w-full h-full col-span-2 overflow-y-auto z-9">
-          <Outlet />
-        </div>
-        <div className="w-full h-full col-span-1 relative">
-          <Detail />
-        </div>
-      </div>
 
       <div className="w-full px-30 py-2 fixed z-99 bottom-0 bg-blue-600 flex justify-between items-center">
         <div className="relative w-3/5">
@@ -73,7 +66,7 @@ const Header = () => {
           />
         </div>
         <Link
-          to="/favorites"
+          href="/favorites"
           className="p-3 bg-white border-3 border-solid border-gray-300 text-2xl font-bold rounded-lg">
           Favorites
         </Link>
